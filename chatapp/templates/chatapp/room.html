@@ -18,7 +18,14 @@
         '/'
     )
         chatSocket.onmessage = function (e){
-            console.log('this is a message')
+            const data = JSON.parse(e.data)
+            if (data.message){
+                console.log('received', data.message)
+
+            }else{
+
+                alert('the message was empty')
+            }
         }
         chatSocket.onclose = function (e){
             console.log('socket closed')
@@ -35,8 +42,9 @@
             'username':chatUserName,
             'room':chatRoomName
         }))
+        messageInput.value = ""
         }
         
-        messageInput.value = ""
+        
 
 </script>
