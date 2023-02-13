@@ -66,7 +66,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     @sync_to_async
     def save_message(self,user,room,message):
-        print('problem')
+        
         user = User.objects.get(username=user)
         room = ChatRoom.objects.get(slug=room)
         ChatMessage.objects.create(user=user,room=room,message_content=message)
